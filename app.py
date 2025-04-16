@@ -48,29 +48,9 @@ with open(resume_file, "rb") as pdf_file:
     PDFbyte = pdf_file.read()
 profile_pic = Image.open(profile_pic)
 
-# --- SIDEBAR ---
-# with st.sidebar:
-#     st.image(profile_pic, width=100)
-#     st.markdown(f"### {NAME}")
-#     st.markdown(DESCRIPTION)
-#     st.markdown("---")
-#     st.write("📬", EMAIL)
-#     st.download_button("📄 Download CV", data=PDFbyte, file_name=resume_file.name, mime="application/octet-stream")
-#     st.markdown("---")
-#     st.subheader("🌐 Connect")
-#     for platform, link in SOCIAL_MEDIA.items():
-#         st.markdown(f"[{platform}]({link})")
-
 # --- MAIN PAGE CONTENT ---
-
-# Lottie animation
-# if lottie_coding:
-#     st_lottie(lottie_coding, height=250, key="coding")
-
-# --- HEADER SECTION ---
 col1, col2 = st.columns(2, gap="small")
 with col1:
-    # st.image(profile_pic, width=200)
     if lottie_coding:
         st_lottie(lottie_coding, height=250, key="coding")
 
@@ -130,27 +110,41 @@ st.write("#")
 st.subheader("💼 Work Experience")
 st.write("---")
 
+st.markdown('<div class="experience-container">', unsafe_allow_html=True)
+
 # Job 1
-st.write("🏢 **Junior Web Developer | KMD Group of Companies**")
-st.write("📍 Yangon, Myanmar | 🗓️ Jul 2023 – Jul 2024")
-st.write(
+st.markdown(
     """
-- 🔧 Developed and maintained full-stack web applications using **Laravel** and **Blade templating engine**  
-- 🎨 Built interactive frontends using **HTML**, **CSS**, **Tailwind CSS**, and **JavaScript**  
-- 🚀 Assisted with deploying Laravel applications, focusing on **security**, **performance optimization**, and **environment configuration**  
-- 🛠️ Collaborated with the team to implement new features, resolve bugs, and improve overall code quality  
-"""
+    <div class="experience-card">
+        <h4>🏢 Junior Web Developer | KMD Group of Companies</h4>
+        <small>📍 Yangon, Myanmar | 🗓️ Jul 2023 – Jul 2024</small>
+        <ul>
+            <li>🔧 Developed and maintained full-stack web applications using <strong>Laravel</strong> and <strong>Blade templating engine</strong></li>
+            <li>🎨 Built interactive frontends using <strong>HTML</strong>, <strong>CSS</strong>, <strong>Tailwind CSS</strong>, and <strong>JavaScript</strong></li>
+            <li>🚀 Assisted with deploying Laravel applications, focusing on <strong>security</strong>, <strong>performance optimization</strong>, and <strong>environment configuration</strong></li>
+            <li>🛠️ Collaborated with the team to implement new features, resolve bugs, and improve overall code quality</li>
+        </ul>
+    </div>
+    """,
+    unsafe_allow_html=True
 )
 
 # Job 2
-st.write("🏢 **Intern Web Developer | KMD Group of Companies**")
-st.write("📍 Yangon, Myanmar | 🗓️ Apr 2023 – May 2023")
-st.write(
+st.markdown(
     """
-- 🌐 Developed and updated the company’s **static website**, implementing new UI designs and feature updates  
-- 🧪 Tested and provided QA support for internal service applications, ensuring reliable functionality and UX  
-"""
+    <div class="experience-card">
+        <h4>🏢 Intern Web Developer | KMD Group of Companies</h4>
+        <small>📍 Yangon, Myanmar | 🗓️ Apr 2023 – May 2023</small>
+        <ul>
+            <li>🌐 Developed and updated the company’s <strong>static website</strong>, implementing new UI designs and feature updates</li>
+            <li>🧪 Tested and provided QA support for internal service applications, ensuring reliable functionality and UX</li>
+        </ul>
+    </div>
+    """,
+    unsafe_allow_html=True
 )
+
+st.markdown('</div>', unsafe_allow_html=True)
 
 # --- PROJECTS ---
 st.write("#")
